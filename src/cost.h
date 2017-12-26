@@ -4,8 +4,6 @@
 
 using namespace std;
 
-float calculate_cost(const Vehicle &vehicle, const map<int, vector<Vehicle>> &predictions, const vector<Vehicle> &trajectory);
-
 /**
  * Cost increases based on distance of intended lane (for planning a lane change) and final lane of trajectory.
  * Cost of being out of goal lane also becomes larger as vehicle approaches goal distance.
@@ -24,6 +22,11 @@ float inefficiency_cost(const Vehicle &vehicle, const vector<Vehicle> &trajector
  * All non ego vehicles in a lane have the same speed, so to get the speed limit for a lane, we can just find one vehicle in that lane.
  */
 float lane_speed(const map<int, vector<Vehicle>> &predictions, int lane);
+
+/**
+ * Sum weighted cost functions to get total cost for trajectory.
+ */
+float calculate_cost(const Vehicle &vehicle, const map<int, vector<Vehicle>> &predictions, const vector<Vehicle> &trajectory);
 
 /**
  * Generate helper data to use in cost functions:
