@@ -1,12 +1,9 @@
 #include <iostream>
 #include "road.h"
 
-/**
- * Initializes Road
- */
 Road::Road(int speed_limit, double traffic_density, vector<int> lane_speeds) {
 
-  this->num_lanes = lane_speeds.size();
+  this->num_lanes = (int) lane_speeds.size();
   this->lane_speeds = lane_speeds;
   this->speed_limit = speed_limit;
   this->density = traffic_density;
@@ -17,7 +14,6 @@ Road::Road(int speed_limit, double traffic_density, vector<int> lane_speeds) {
 Road::~Road() {}
 
 Vehicle Road::get_ego() {
-
   return this->vehicles.find(this->ego_key)->second;
 }
 
@@ -125,7 +121,7 @@ void Road::display(int timestep) {
         stringstream buffer;
         buffer << " ";
         oss << v_id;
-        for (int buffer_i = oss.str().length(); buffer_i < 3; buffer_i++) {
+        for (int buffer_i = (int) oss.str().length(); buffer_i < 3; buffer_i++) {
           buffer << "0";
 
         }
@@ -144,7 +140,7 @@ void Road::display(int timestep) {
       stringstream buffer;
       stringstream dis;
       dis << i;
-      for (int buffer_i = dis.str().length(); buffer_i < 3; buffer_i++) {
+      for (int buffer_i = (int) dis.str().length(); buffer_i < 3; buffer_i++) {
         buffer << "0";
       }
 

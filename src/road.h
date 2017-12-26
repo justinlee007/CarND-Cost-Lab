@@ -36,13 +36,13 @@ class Road {
   int vehicles_added = 0;
 
   /**
-    * Constructor
-    */
+   * Initializes Road
+   */
   Road(int speed_limit, double traffic_density, vector<int> lane_speeds);
 
   /**
-  * Destructor
-  */
+   * Destructor
+   */
   virtual ~Road();
 
   Vehicle get_ego();
